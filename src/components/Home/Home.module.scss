@@ -1,0 +1,132 @@
+@import "../../mixins.scss";
+
+.section {
+  @include flex(column, center, center, 0);
+  @include size(100dvw, 100dvh, 0, 0);
+  background-color: var(--colors-neutral-000);
+}
+
+.card {
+  @include size(var(--measures-header-width),
+    calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
+    0,
+    (calc(var(--measures-header-height) + 16px)) 0 0 0);
+  @include flex(column, center, flex-start, 0.5rem);
+  max-width: 800px;
+  position: relative;
+  padding-bottom: 60px;
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 120px;
+  }
+}
+
+.title {
+  @include text(5rem, 400, start);
+  color: var(--colors-neutral-800);
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    display: none;
+  }
+}
+
+.picture {
+  position: absolute;
+  background: url("../../assets/images/profile.webp");
+  background-size: contain;
+  width: 200px;
+  height: 200px;
+  display: none;
+  z-index: 20;
+  border-radius: var(--edges-curvature-200);
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    display: none !important;
+  }
+}
+
+.name {
+  @include text(6rem, 500, start);
+  color: var(--colors-accent-100);
+  position: relative;
+  cursor: none;
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    font-size: 5rem;
+    text-align: center;
+  }
+}
+
+.subtitle {
+  @include text(3rem, 300, start);
+  color: var(--colors-neutral-600);
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    font-size: 2rem;
+  }
+}
+
+.circle {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 10px;
+  top: 140px;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s ease-in;
+
+  svg {
+    position: absolute;
+    overflow: visible;
+    animation: rotate 8s linear infinite;
+  }
+
+  svg:hover {
+    animation-play-state: paused;
+  }
+
+  path {
+    fill: none;
+  }
+
+  text {
+    fill: var(--colors-neutral-500);
+    font-family: var(--font);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 8px;
+  }
+
+  .button {
+    @include size(120px, 120px, 1rem, 0);
+    border-radius: 50%;
+    background-color: var(--colors-accent-100);
+
+    p {
+      @include text(24px, 500, center);
+      color: white;
+      // max-width: 76px;
+      word-wrap: break-word;
+    }
+  }
+
+  @keyframes rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    position: relative;
+    right: inherit;
+    top: inherit;
+    margin-top: 30px;
+  }
+}

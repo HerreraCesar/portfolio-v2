@@ -1,0 +1,30 @@
+@import "../../mixins.scss";
+
+.layout {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100dvw;
+  @include flex(column, center, center, 0);
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--colors-neutral-000);
+}
+
+.main {
+  min-width: 100%;
+  min-height: 100%;
+  @include flex(column, space-between, center, 0);
+}
+
+.toast {
+  width: 240px;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  border-radius: var(--edges-curvature-100) !important;
+  background: var(--colors-neutral-300) !important;
+  color: var(--colors-neutral-800) !important;
+
+  circle {
+    fill: var(--colors-accent-100) !important;
+  }
+}

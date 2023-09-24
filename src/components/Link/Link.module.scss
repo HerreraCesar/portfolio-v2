@@ -1,0 +1,30 @@
+@import "../../mixins.scss";
+
+.link {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--colors-neutral-800);
+  width: 100%;
+  padding: 4px 8px;
+}
+
+.active_link {
+  color: var(--colors-neutral-900);
+  font-weight: 600;
+  @media screen and (max-aspect-ratio: 10/8) {
+    background-color: var(--colors-accent-100);
+    color: var(--colors-neutral-100);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &::after {
+      content: "SELECTED";
+      color: var(--colors-neutral-100);
+      font-size: 14px;
+      font-weight: 300;
+      //   text-decoration: line-through;
+      font-style: italic;
+      padding-left: 20px;
+    }
+  }
+}

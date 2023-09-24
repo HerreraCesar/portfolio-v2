@@ -1,0 +1,20 @@
+@import "../../mixins.scss";
+
+.section {
+  @include flex(column, center, center, 0);
+  @include size(100dvw, 100dvh, 0, 0);
+  background-color: var(--colors-neutral-000);
+}
+
+.card {
+  @include size(
+    var(--measures-header-width),
+    calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
+    0,
+    (calc(var(--measures-header-height) + 16px)) 0 0 0
+  );
+  @include flex(column, center, flex-start, 0.5rem);
+  max-width: 800px;
+  position: relative;
+  padding-bottom: 60px;
+}
