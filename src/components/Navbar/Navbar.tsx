@@ -23,7 +23,7 @@ export default function Navbar() {
     }
   });
 
-  const sections = ["home", "about", "projects", "experience", "contact"];
+  const sections = ["home", "projects", "about", "experience", "contact"];
   const [elements, setElements] = createSignal<Element[]>([]);
   const [currentSection, setCurrentSection] = createSignal("");
 
@@ -87,7 +87,8 @@ export default function Navbar() {
         <Menu menuOpen={menuOpen} />
       </header>
       <div
-        class={`${menuOpen() ? styles.overlay : styles.closed_overlay}`}
+        class={styles.overlay}
+        classList={{ [styles.closed_overlay]: !menuOpen() }}
         onClick={() => setMenuOpen(!menuOpen())}
       />
     </>

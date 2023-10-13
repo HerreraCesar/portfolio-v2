@@ -10,16 +10,15 @@
   @include size(
     100%,
     calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
-    80px 100px 100px,
+    40px 100px 100px,
     (calc(var(--measures-header-height) + 16px)) 0 0 0
   );
   @include flex(column, center, center, 2rem);
-  // max-width: 800px;
   position: relative;
 }
 
 .title {
-  @include text(8rem, 800, center);
+  @include text(7rem, 800, center);
   color: var(--colors-neutral-800);
   text-transform: uppercase;
 }

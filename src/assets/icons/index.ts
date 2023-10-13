@@ -1,4 +1,4 @@
-import solid from "./solid-start.svg";
+import solid_start from "./solid-start.svg";
 import sass from "./sass.svg";
 import vercel from "./vercel.svg";
 import strapi from "./strapi.svg";
@@ -28,9 +28,12 @@ import redux from "./redux.svg";
 import apollo from "./apollo.svg";
 import motion from "./motion.svg";
 import gitlab from "./gitlab.svg";
+import jquery from "./jquery.svg";
+import socket from "./socket.svg";
+import solid from "./solid.svg";
 
 export const logos = {
-  solid,
+  solid_start,
   axios,
   sass,
   vercel,
@@ -60,4 +63,7 @@ export const logos = {
   apollo,
   motion,
   gitlab,
+  jquery,
+  socket,
+  solid,
 };

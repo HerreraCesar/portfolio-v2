@@ -32,7 +32,6 @@ export default (props: Props) => {
       onSlideChange={() => {
         setTouched(false);
       }}
-
       // autoplay={{ delay: 2000, pauseOnMouseEnter: true }}
     >
       <For each={props.slides}>
@@ -44,7 +43,7 @@ export default (props: Props) => {
             }}
           >
             <div class={styles.back}>
-              <p>{t(slide.description)}</p>
+              <p innerHTML={t(slide.description)} />
               <div>
                 <For each={slide.stack}>
                   {(tech) => {

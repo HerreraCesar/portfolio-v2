@@ -7,10 +7,12 @@
 }
 
 .card {
-  @include size(var(--measures-header-width),
+  @include size(
+    var(--measures-header-width),
     calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
     0,
-    (calc(var(--measures-header-height) + 16px)) 0 0 0);
+    (calc(var(--measures-header-height) + 16px)) 0 0 0
+  );
   @include flex(column, center, flex-start, 0.5rem);
   max-width: 800px;
   position: relative;
@@ -24,7 +26,7 @@
 }
 
 .title {
-  @include text(5rem, 400, start);
+  @include text(7rem, 400, start);
   color: var(--colors-neutral-800);
 
   @media screen and (max-aspect-ratio: 10/8) {
@@ -108,7 +110,6 @@
     p {
       @include text(24px, 500, center);
       color: white;
-      // max-width: 76px;
       word-wrap: break-word;
     }
   }
