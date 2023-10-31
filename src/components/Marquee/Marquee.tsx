@@ -1,12 +1,12 @@
-import { For, JSXElement } from 'solid-js';
+import { For, JSXElement } from "solid-js";
 
-import styles from './Marquee.module.scss';
+import styles from "./Marquee.module.scss";
 
 interface SliderProps {
   quantity: number;
   children: JSXElement;
   duration?: number;
-  direction?: 'normal' | 'reverse';
+  direction?: "normal" | "reverse";
 }
 
 export default function Marquee(props: SliderProps) {
@@ -15,8 +15,8 @@ export default function Marquee(props: SliderProps) {
       <div>
         <div
           style={{
-            'animation-duration': `${props.duration ?? props.quantity * 3}s`,
-            'animation-direction': `${props.direction ?? 'normal'}`,
+            "animation-duration": `${props.duration ?? props.quantity * 3}s`,
+            "animation-direction": `${props.direction ?? "normal"}`,
           }}
         >
           <For each={Array(props.quantity * 3)}>{() => props.children}</For>

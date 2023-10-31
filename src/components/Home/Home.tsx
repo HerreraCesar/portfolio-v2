@@ -6,6 +6,9 @@ import { t } from "~/helpers/translate";
 import { useApplicationContext } from "~/context/context";
 import { Language } from "~/interfaces";
 import { translations } from "~/constants";
+import { A } from "solid-start";
+import { links } from "~/config";
+import { BsBriefcaseFill, BsGithub, BsLinkedin } from "solid-icons/bs";
 
 interface Props {
   id: string;
@@ -20,7 +23,7 @@ onMount(() => {
 const follow = (event: MouseEvent) => {
   if (profile) {
     profile.style.top = event.clientY + "px";
-    profile.style.left = event.offsetX + "px";
+    profile.style.left = event.clientX + "px";
   }
 };
 
@@ -31,7 +34,29 @@ export default function Home(props: Props) {
   return (
     <section class={styles.section} id={props.id}>
       <div class={styles.card}>
-        <h1 class={styles.title}>{t("home_title")}</h1>
+        <h1 class={styles.title}>
+          {t("home_title")}
+          <div class={styles.circle} onClick={() => navigate("contact")}>
+            <svg viewBox="0 0 100 100">
+              <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+              <text class={styles.rotate_text}>
+                <textPath href="#circle" style={{ "margin-right": "10px" }}>
+                  <tspan>{t("home_button_slogan")}</tspan>
+                  <For each={Array(5)}>
+                    {() => (
+                      <tspan dx={language() == "en" ? "7" : "9"}>
+                        {t("home_button_slogan")}
+                      </tspan>
+                    )}
+                  </For>
+                </textPath>
+              </text>
+            </svg>
+            <button class={styles.button}>
+              <p>{t("home_button")}</p>
+            </button>
+          </div>
+        </h1>
         <div class={styles.picture} id="profile" />
         <h2
           class={styles.name}
@@ -49,27 +74,21 @@ export default function Home(props: Props) {
         >
           {t("home_name")}
         </h2>
-        <h3 class={styles.subtitle}>{t("home_subtitle")}</h3>
-        <div class={styles.circle} onClick={() => navigate("contact")}>
-          <svg viewBox="0 0 100 100">
-            <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
-            <text class={styles.rotate_text}>
-              <textPath href="#circle" style={{ "margin-right": "10px" }}>
-                <tspan>{t("home_button_slogan")}</tspan>
-                <For each={Array(5)}>
-                  {() => (
-                    <tspan dx={language() == "en" ? "7" : "9"}>
-                      {t("home_button_slogan")}
-                    </tspan>
-                  )}
-                </For>
-              </textPath>
-            </text>
-          </svg>
-          <button class={styles.button}>
-            <p>{t("home_button")}</p>
-          </button>
+        <div class={styles.subtitle_container}>
+          <h3 class={styles.subtitle}>{t("home_subtitle")}</h3>
+          <div class={styles.icons}>
+            <A href={links.github} target="_blank">
+              <BsGithub />
+            </A>
+            <A href={links.linkedin} target="_blank">
+              <BsLinkedin />
+            </A>
+            <A href={links.portfolio} target="_blank">
+              <BsBriefcaseFill />
+            </A>
+          </div>
         </div>
+
         <Marquee quantity={3} duration={36}>
           <For each={translations}>
             {(translation) => <span>{translation}</span>}

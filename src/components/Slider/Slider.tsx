@@ -67,17 +67,37 @@ export default (props: Props) => {
             </div>
             <div class={styles.data}>
               <h3>{slide.title}</h3>
-              <A href={slide.url} target="_blank">
-                <button class={styles.button}>
-                  <BsGlobe class={styles.sign} />
-                  <div class={styles.text}>{t("projects_demo")}</div>
-                </button>
+              <A
+                href={slide.url}
+                target="_blank"
+                onClick={(e) => {
+                  if (!slide.url) {
+                    e.preventDefault();
+                  }
+                }}
+                class={styles.button}
+                classList={{
+                  [styles.disabled]: !slide.url,
+                }}
+              >
+                <BsGlobe class={styles.sign} />
+                <div class={styles.text}>{t("projects_demo")}</div>
               </A>
-              <A href={slide.repository} target="_blank">
-                <button class={styles.button}>
-                  <VsGithub class={styles.sign} />
-                  <div class={styles.text}>{t("projects_code")}</div>
-                </button>
+              <A
+                href={slide.repository}
+                target={"_blank"}
+                onClick={(e) => {
+                  if (!slide.repository) {
+                    e.preventDefault();
+                  }
+                }}
+                class={styles.button}
+                classList={{
+                  [styles.disabled]: !slide.repository,
+                }}
+              >
+                <VsGithub class={styles.sign} />
+                <div class={styles.text}>{t("projects_code")}</div>
               </A>
               <button
                 class={styles.button}

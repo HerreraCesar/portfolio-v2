@@ -9,6 +9,8 @@ import milpelis from "./mil-pelis.webp";
 import pcentrix from "./pcentrix.webp";
 import sergalgos from "./ser-galgos.webp";
 import staililuminacion from "./stail-iluminacion.webp";
+import digichanges from "./digichanges.webp";
+import aboutme from "./about-me.webp";
 
 export const images = {
   eleccionesargentina,
@@ -22,4 +24,6 @@ export const images = {
   pcentrix,
   sergalgos,
   staililuminacion,
+  digichanges,
+  aboutme,
 };

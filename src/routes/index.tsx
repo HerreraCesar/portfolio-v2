@@ -9,9 +9,9 @@ export default function Index() {
   return (
     <Layout>
       <Home id="home" />
-      <Projects id="projects" />
-      <About id="about" />
       <Experience id="experience" />
+      <About id="about" />
+      <Projects id="projects" />
       <Contact id="contact" />
     </Layout>
   );

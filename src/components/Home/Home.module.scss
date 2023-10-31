@@ -13,8 +13,7 @@
     0,
     (calc(var(--measures-header-height) + 16px)) 0 0 0
   );
-  @include flex(column, center, flex-start, 0.5rem);
-  max-width: 800px;
+  @include flex(column, center, center, 0.5rem);
   position: relative;
   padding-bottom: 60px;
 
@@ -28,7 +27,7 @@
 .title {
   @include text(7rem, 400, start);
   color: var(--colors-neutral-800);
-
+  position: relative;
   @media screen and (max-aspect-ratio: 10/8) {
     display: none;
   }
@@ -50,7 +49,7 @@
 }
 
 .name {
-  @include text(6rem, 500, start);
+  @include text(8rem, 800, start);
   color: var(--colors-accent-100);
   position: relative;
   cursor: none;
@@ -62,7 +61,7 @@
 }
 
 .subtitle {
-  @include text(3rem, 300, start);
+  @include text(2.4rem, 300, start);
   color: var(--colors-neutral-600);
 
   @media screen and (max-aspect-ratio: 10/8) {
@@ -70,12 +69,16 @@
   }
 }
 
+.subtitle_container {
+  @include flex(row, center, center, 1rem);
+}
+
 .circle {
   display: grid;
   place-items: center;
   position: absolute;
-  right: 10px;
-  top: 140px;
+  right: -18%;
+  top: -110%;
   cursor: pointer;
   padding: 10px;
   transition: transform 0.2s ease-in;
@@ -129,5 +132,21 @@
     right: inherit;
     top: inherit;
     margin-top: 30px;
+  }
+}
+
+.icons {
+  @include flex(row, center, center, 20px);
+  a {
+    @include size(2rem, 2rem);
+    svg {
+      @include size();
+      fill: var(--colors-neutral-600);
+    }
+    &:hover {
+      svg {
+        fill: var(--colors-accent-100);
+      }
+    }
   }
 }

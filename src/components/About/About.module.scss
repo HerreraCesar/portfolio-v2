@@ -13,8 +13,39 @@
     0,
     (calc(var(--measures-header-height) + 16px)) 0 0 0
   );
-  @include flex(column, center, flex-start, 0.5rem);
+  @include flex(column, center, center, 0.5rem);
   max-width: 800px;
   position: relative;
   padding-bottom: 60px;
+}
+
+.title {
+  @include text(7rem, 800, center);
+  color: var(--colors-neutral-800);
+  text-transform: uppercase;
+}
+
+.image {
+  @include size(fit-content, 40dvh, 0, 0);
+  border: solid 2px var(--colors-neutral-200);
+  border-radius: var(--edges-curvature-100);
+  overflow: hidden;
+  img {
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.marquee_item {
+  // box-shadow: 0px 0px 10px var(--colors-accent-100);
+  @include flex(column, center, center, 0.5rem);
+  width: 30px;
+  img {
+    width: 30px;
+    height: 30px;
+  }
+  span {
+    @include text(0.7rem, 300, center);
+    text-overflow: clip;
+  }
 }

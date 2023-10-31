@@ -1,7 +1,12 @@
-const github = import.meta.env.VITE_GITHUB_PROFILE;
-const linkedin = import.meta.env.VITE_LINKEDIN_PROFILE;
-const portfolio = import.meta.env.VITE_PORTFOLIO_URL;
-const email = import.meta.env.VITE_EMAIL;
+const github: string =
+  import.meta.env.VITE_GITHUB_PROFILE ?? "https://github.com/HerreraCesar";
+const linkedin: string =
+  import.meta.env.VITE_LINKEDIN_PROFILE ??
+  "https://www.linkedin.com/in/herrera-cesar";
+const portfolio: string =
+  import.meta.env.VITE_PORTFOLIO_URL ?? "https://herreracesar.com.ar";
+const email: string =
+  import.meta.env.VITE_EMAIL ?? "herrera.cesar.arg@gmail.com";
 
 export const links = {
   github,

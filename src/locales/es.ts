@@ -8,7 +8,7 @@ const navbar = {
   contact: "Contacto",
   logo: "Elecciones Argentina",
   spanish: "Español",
-  english: "Ingles",
+  english: "Inglés",
   dark: "Oscuro",
   light: "Claro",
   color: "Color:",
@@ -77,6 +77,10 @@ const experiences = {
     "Como <strong>Frontend Developer</strong> en <strong>Digichanges</strong>, he participado en el desarrollo de <strong>sitios web</strong> y <strong>aplicaciones móviles</strong> atractivas y funcionales, además de realizar <strong>revisiones de código</strong> para garantizar la calidad de nuestros proyectos. Trabajando bajo la metodología ágil <strong>Scrum</strong>, hemos logrado una colaboración efectiva en equipos diversos mientras que la modalidad remota fortaleció mis habilidades de <strong>gestión del tiempo</strong> y <strong>comunicación</strong>.",
 };
 
+const about = {
+  about_title: "Sobre mí",
+};
+
 const es: Dictionary = {
   ...navbar,
   ...home,
@@ -85,6 +89,7 @@ const es: Dictionary = {
   ...contact,
   ...projects,
   ...experiences,
+  ...about,
 };
 
 export default es;

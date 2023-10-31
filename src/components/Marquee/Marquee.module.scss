@@ -3,17 +3,18 @@
 .container {
   width: var(--measures-page-width);
   max-width: 800px;
-  height: 60px;
+  min-height: 60px;
+  height: auto;
   position: absolute;
   bottom: 40px;
   overflow-x: hidden;
   @include flex(row, center, center);
 
-  div {
+  > div {
     @include flex(row, center, center);
     width: fit-content;
 
-    div {
+    > div {
       @include flex(row, center, center, 36px);
       animation: loop linear infinite;
 

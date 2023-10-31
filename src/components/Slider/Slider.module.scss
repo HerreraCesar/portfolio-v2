@@ -39,7 +39,7 @@
   min-width: 800px;
   max-width: 800px;
   border-radius: 20px;
-  @include flex(column, flex-start, flex-start, 2rem);
+  @include flex(column, flex-start, flex-start, 3rem);
 }
 
 .background {
@@ -55,6 +55,7 @@
     height: 100%;
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    background-position: center !important;
   }
 }
 
@@ -63,7 +64,7 @@
   background-color: var(--colors-neutral-100);
   border-radius: var(--edges-curvature-100);
   @include flex(column, center, flex-start, 1rem);
-  @include size(100%, calc(100% - 72px), 20px 20px 20px calc(40% + 20px), 0);
+  @include size(100%, calc(100% - 108px), 20px 20px 20px calc(40% + 20px), 0);
   position: absolute;
   top: 0;
   right: 0;
@@ -95,7 +96,7 @@
 
 .data {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 20px 20px;
   @include flex(row, center, center, 1rem);
   h3 {
     @include text(1.6rem, 500, center);
@@ -124,6 +125,11 @@
 
 .active {
   background-color: var(--colors-accent-100);
+}
+
+.disabled {
+  cursor: no-drop;
+  opacity: 50%;
 }
 
 .sign {

@@ -10,10 +10,10 @@
   @include size(
     100%,
     calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
-    40px 100px 100px,
+    60px 100px 60px,
     (calc(var(--measures-header-height) + 16px)) 0 0 0
   );
-  @include flex(column, center, center, 2rem);
+  @include flex(column, center, center, 3rem);
   position: relative;
 }
 

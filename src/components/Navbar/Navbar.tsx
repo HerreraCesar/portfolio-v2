@@ -23,7 +23,7 @@ export default function Navbar() {
     }
   });
 
-  const sections = ["home", "projects", "about", "experience", "contact"];
+  const sections = ["home", "experience", "about", "projects", "contact"];
   const [elements, setElements] = createSignal<Element[]>([]);
   const [currentSection, setCurrentSection] = createSignal("");
 

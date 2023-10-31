@@ -76,6 +76,10 @@ const experiences = {
     "As a <strong>Frontend Developer</strong> at <strong>Digichanges</strong>, I have been involved in the development of attractive and functional <strong>websites</strong> and <strong>mobile applications</strong>, as well as conducting <strong>code reviews</strong> to ensure the quality of our projects. Working under the agile <strong>Scrum</strong> methodology, we have achieved effective collaboration in diverse teams, and the remote mode has strengthened my <strong>time management</strong> and <strong>communication</strong> skills.",
 };
 
+const about = {
+  about_title: "About me",
+};
+
 const en: Dictionary = {
   ...navbar,
   ...home,
@@ -84,6 +88,7 @@ const en: Dictionary = {
   ...contact,
   ...projects,
   ...experiences,
+  ...about,
 };
 
 export default en;

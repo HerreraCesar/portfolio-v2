@@ -17,6 +17,7 @@
 
 .title {
   @include text(7rem, 800, center);
+  margin-top: 5rem;
   text-transform: uppercase;
   @include flex(row, center, center, 10px);
   color: var(--colors-neutral-800);
@@ -68,5 +69,26 @@
     max-width: var(--measures-page-width);
     flex-wrap: wrap;
     overflow-wrap: break-word;
+  }
+}
+
+.icons {
+  @include flex(row, center, center, 20px);
+  margin-top: 2rem;
+  a {
+    @include size(80px, 80px);
+    border: solid 1px var(--colors-neutral-600);
+    padding: 20px;
+    border-radius: var(--edges-curvature-900);
+    svg {
+      @include size();
+      fill: var(--colors-neutral-600);
+    }
+    &:hover {
+      background-color: var(--colors-neutral-600);
+      svg {
+        fill: var(--colors-neutral-200);
+      }
+    }
   }
 }
