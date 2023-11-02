@@ -7,11 +7,25 @@
   &::after,
   &::before {
     content: "";
-    width: calc((100dvw - 800px - 200px) / 2);
+    width: calc((100dvw - 50dvw - 200px) / 2);
+    min-width: calc((100dvw - 800px - 200px) / 2);
+    max-width: calc((100dvw - 800px - 200px) / 2);
     height: 100%;
     position: absolute;
     bottom: 0;
     z-index: 2;
+
+    @media screen and (max-aspect-ratio: 10/8) {
+      width: calc((100dvw - 50dvw - 60px) / 2);
+      min-width: calc((100dvw - 500px - 60px) / 2);
+      max-width: calc((100dvw - 500px - 60px) / 2);
+    }
+
+    @media screen and (max-aspect-ratio: 10/13) {
+      width: calc((100dvw - 70%) / 2);
+      min-width: calc((100dvw - 70% - 10px) / 2);
+      max-width: calc((100dvw - 70% - 10px) / 2);
+    }
   }
 
   &::before {
@@ -34,12 +48,26 @@
 }
 
 .slide {
+  @include flex(column, flex-start, flex-start, 3rem);
   width: 50dvw;
   height: 100%;
   min-width: 800px;
   max-width: 800px;
   border-radius: 20px;
-  @include flex(column, flex-start, flex-start, 3rem);
+  margin: 0 30px;
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    min-width: 500px;
+    max-width: 500px;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    width: 70%;
+    min-width: 70%;
+    max-width: 70%;
+    margin: 0 10px;
+    gap: 2rem;
+  }
 }
 
 .background {
@@ -49,6 +77,7 @@
   border: solid 2px var(--colors-neutral-200);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
+
   > div {
     transition: all 0.3s ease-in-out;
     width: 100%;
@@ -57,24 +86,37 @@
     background-repeat: no-repeat !important;
     background-position: center !important;
   }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    height: 200px;
+    position: absolute;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (min-width: 601px) {
+    height: 450px;
+    position: absolute;
+  }
 }
 
 .back {
+  @include flex(column, flex-start, flex-start, 1rem);
+  @include size(100%, calc(100% - 108px), 20px 20px 20px calc(40% + 20px), 0);
   border: solid 2px var(--colors-neutral-200);
   background-color: var(--colors-neutral-100);
   border-radius: var(--edges-curvature-100);
-  @include flex(column, center, flex-start, 1rem);
-  @include size(100%, calc(100% - 108px), 20px 20px 20px calc(40% + 20px), 0);
   position: absolute;
   top: 0;
   right: 0;
   z-index: -1;
+
   p {
-    @include text(1.1rem, 200, start);
+    @include text(1.1rem, 300, start);
   }
-  > div {
+
+  > div > div {
     @include flex(row, flex-start, flex-start, 10px);
     flex-wrap: wrap;
+
     > a {
       @include flex(row, center, center, 10px);
       background-color: hsla(0, 0%, 0%, 0.1);
@@ -83,21 +125,122 @@
       border-radius: var(--edges-curvature-100);
       padding: 8px 10px;
       cursor: pointer;
+
+      > span {
+        @include text(1rem, 400, center);
+        width: max-content;
+      }
+
       &:hover {
         background-color: var(--colors-accent-100);
       }
-      span {
-        @include text(1rem, 400, center);
-        width: max-content;
+    }
+  }
+
+  @media screen and (max-height: 850px) and (orientation: landscape) {
+    p {
+      font-size: 1rem;
+    }
+
+    > div > div {
+      gap: 8px;
+
+      > a {
+        gap: 8px;
+        padding: 6px 8px;
+
+        > span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    padding: 20px 20px 20px 20px;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    position: relative;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    max-height: calc(100% - 107px - 2rem);
+
+    p {
+      font-size: 0.8rem;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent !important;
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+    }
+    > div {
+      min-height: 170px;
+      max-height: 170px;
+      overflow-y: scroll;
+      margin-bottom: 10px;
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent !important;
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      > div {
+        gap: 5px;
+
+        > a {
+          margin: 0;
+          > img {
+            height: 15px;
+            width: 15px;
+          }
+
+          > span {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (min-width: 601px) {
+    p {
+      font-size: 1.2rem;
+    }
+
+    > div {
+      min-height: 440px;
+      max-height: 440px;
+
+      > div {
+        gap: 10px;
+
+        > a {
+          > img {
+            height: 25px;
+            width: 25px;
+          }
+
+          > span {
+            font-size: 1.2rem;
+          }
+        }
       }
     }
   }
 }
 
 .data {
+  @include flex(row, center, center, 1rem);
   width: 100%;
   padding: 0 20px 20px;
-  @include flex(row, center, center, 1rem);
+
   h3 {
     @include text(1.6rem, 500, center);
     white-space: nowrap;
@@ -106,6 +249,18 @@
     color: var(--colors-neutral-800);
     text-overflow: ellipsis;
   }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    flex-direction: column;
+
+    h3 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.buttons_container {
+  @include flex(row, center, center, 1rem);
 }
 
 .button {
@@ -121,6 +276,32 @@
   overflow: hidden;
   transition: width 0.3s;
   background-color: var(--colors-neutral-300);
+
+  &:hover {
+    width: 170px;
+  }
+
+  &:hover .text {
+    opacity: 1;
+    margin-left: 10px;
+    width: 120px;
+  }
+
+  &:active {
+    transform: translate(2px, 2px);
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    &:hover {
+      width: 40px;
+    }
+
+    &:hover .text {
+      opacity: 0;
+      margin-left: 0;
+      width: 0;
+    }
+  }
 }
 
 .active {
@@ -138,10 +319,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.sign path {
-  fill: var(--colors-neutral-900);
+  path {
+    fill: var(--colors-neutral-900);
+  }
 }
 
 .text {
@@ -153,28 +334,23 @@
   width: 0px;
 }
 
-.button:hover {
-  width: 170px;
-  border-radius: 40px;
-  transition: width 0.3s;
-}
-
-.button:hover .text {
-  opacity: 1;
-  transform: scaleX(1);
-  margin-left: 10px;
-  width: 120px;
-}
-
-.button:active {
-  transform: translate(2px, 2px);
-}
-
 .touched {
   .background {
     width: 40%;
+
     > div {
       filter: brightness(70%) saturate(80%);
+    }
+
+    @media screen and (max-aspect-ratio: 10/8) {
+      width: 100%;
+      height: 40%;
+      margin-bottom: 100%;
+    }
+
+    @media screen and (max-aspect-ratio: 10/13) {
+      height: 0%;
+      border: none;
     }
   }
 }

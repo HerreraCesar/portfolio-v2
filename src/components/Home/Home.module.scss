@@ -1,11 +1,5 @@
 @import "../../mixins.scss";
 
-.section {
-  @include flex(column, center, center, 0);
-  @include size(100dvw, 100dvh, 0, 0);
-  background-color: var(--colors-neutral-000);
-}
-
 .card {
   @include size(
     var(--measures-header-width),
@@ -17,10 +11,8 @@
   position: relative;
   padding-bottom: 60px;
 
-  @media screen and (max-aspect-ratio: 10/8) {
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 120px;
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
+    gap: 1.6rem;
   }
 }
 
@@ -28,7 +20,16 @@
   @include text(7rem, 400, start);
   color: var(--colors-neutral-800);
   position: relative;
+
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    font-size: 5rem;
+  }
+
   @media screen and (max-aspect-ratio: 10/8) {
+    font-size: 4rem;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
     display: none;
   }
 }
@@ -49,14 +50,30 @@
 }
 
 .name {
-  @include text(8rem, 800, start);
+  @include text(8rem, 800, center);
   color: var(--colors-accent-100);
   position: relative;
   cursor: none;
 
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    font-size: 6rem;
+  }
+
   @media screen and (max-aspect-ratio: 10/8) {
     font-size: 5rem;
-    text-align: center;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
+    font-size: 4.6rem;
+    line-height: 1;
+  }
+}
+
+.subtitle_container {
+  @include flex(row, center, center, 1rem);
+
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
+    flex-direction: column;
   }
 }
 
@@ -64,13 +81,17 @@
   @include text(2.4rem, 300, start);
   color: var(--colors-neutral-600);
 
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    font-size: 2rem;
+  }
+
   @media screen and (max-aspect-ratio: 10/8) {
     font-size: 2rem;
   }
-}
 
-.subtitle_container {
-  @include flex(row, center, center, 1rem);
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
+    font-size: 1.8rem;
+  }
 }
 
 .circle {
@@ -87,10 +108,10 @@
     position: absolute;
     overflow: visible;
     animation: rotate 8s linear infinite;
-  }
 
-  svg:hover {
-    animation-play-state: paused;
+    &:hover {
+      animation-play-state: paused;
+    }
   }
 
   path {
@@ -117,36 +138,42 @@
     }
   }
 
-  @keyframes rotate {
-    to {
-      transform: rotate(1turn);
-    }
-  }
-
   &:hover {
     transform: scale(1.05);
   }
 
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    top: -150%;
+    right: -30%;
+  }
+
   @media screen and (max-aspect-ratio: 10/8) {
-    position: relative;
-    right: inherit;
-    top: inherit;
-    margin-top: 30px;
+    top: -220%;
+    right: -20%;
   }
 }
 
 .icons {
   @include flex(row, center, center, 20px);
+
   a {
     @include size(2rem, 2rem);
+
     svg {
       @include size();
       fill: var(--colors-neutral-600);
     }
+
     &:hover {
       svg {
         fill: var(--colors-accent-100);
       }
     }
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
   }
 }

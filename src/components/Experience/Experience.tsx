@@ -9,9 +9,9 @@ interface Props {
 
 export default function Experience(props: Props) {
   return (
-    <section class={styles.section} id={props.id}>
+    <section class={"section"} id={props.id}>
       <div class={styles.card}>
-        <h2 class={styles.title}>{t("experiences_title")}</h2>
+        <h2 class={"title"}>{t("experiences_title")}</h2>
         <Slider slides={experiences} />
       </div>
     </section>

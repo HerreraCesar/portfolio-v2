@@ -1,28 +1,38 @@
 @import "../../mixins.scss";
 
-.section {
-  @include flex(column, center, center, 0);
-  @include size(100dvw, 100dvh, 0, 0);
-  background-color: var(--colors-neutral-000);
-}
-
 .card {
+  @include flex(column, center, center, 3rem);
   @include size(
     var(--measures-header-width),
     calc(var(--vh) - calc(var(--measures-header-height) + 16px)),
     0,
     (calc(var(--measures-header-height) + 16px)) 0 0 0
   );
-  @include flex(column, center, center, 0.5rem);
-  max-width: 800px;
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 160px;
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    gap: 2rem;
+  }
 }
 
-.title {
-  @include text(7rem, 800, center);
-  color: var(--colors-neutral-800);
-  text-transform: uppercase;
+.container {
+  @include flex(row, center, center, 2rem);
+  @media screen and (max-aspect-ratio: 10/13) {
+    flex-direction: column;
+    max-width: 70dvw;
+  }
+}
+
+.subcontainer {
+  @include flex(row, flex-end, center, 2rem);
+  height: 100%;
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    @include flex(row-reverse, flex-end, center, 1rem);
+    width: 100%;
+    height: auto;
+  }
 }
 
 .image {
@@ -30,22 +40,151 @@
   border: solid 2px var(--colors-neutral-200);
   border-radius: var(--edges-curvature-100);
   overflow: hidden;
+
   img {
     height: 100%;
+    width: 100%;
     object-fit: contain;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    height: -webkit-fill-available;
+    width: 40dvw;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
+
+.data {
+  @include flex(column, space-evenly, center, 1rem);
+  max-width: 260px;
+  height: 100%;
+
+  > h3 {
+    @include text(4rem, 800, start);
+    color: var(--colors-accent-100);
+    line-height: 0.9;
+  }
+
+  > p {
+    @include text(1.1rem, 300, start);
+    color: var(--colors-neutral-600);
+    line-height: 1.25;
+  }
+
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    > h3 {
+      font-size: 3rem;
+    }
+
+    > p {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    max-width: 100%;
+    align-items: flex-start;
+
+    > h3 {
+      font-size: 2.4rem;
+    }
+
+    > p {
+      font-size: 0.9rem;
+    }
   }
 }
 
 .marquee_item {
-  // box-shadow: 0px 0px 10px var(--colors-accent-100);
-  @include flex(column, center, center, 0.5rem);
-  width: 30px;
-  img {
+  @include flex(row, center, center, 0.5rem);
+  margin-right: 0.5rem;
+
+  > img {
     width: 30px;
     height: 30px;
   }
-  span {
-    @include text(0.7rem, 300, center);
-    text-overflow: clip;
+
+  > span {
+    @include text(1rem, 300, start);
+    white-space: nowrap;
+    color: var(--colors-neutral-600);
+  }
+}
+
+.actions {
+  @include flex(column, space-evenly, flex-end, 1rem);
+  max-width: 260px;
+  height: 100%;
+
+  > div {
+    @include flex(row, flex-end, center, 0.5rem);
+
+    > img {
+      height: 1.6rem;
+      border-radius: 2px;
+    }
+
+    > span {
+      @include text(1.2rem, 400, end);
+      color: var(--colors-neutral-700);
+    }
+
+    @media screen and (max-height: 800px) and (orientation: landscape) {
+      > img {
+        height: 1.4rem;
+      }
+
+      > span {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    max-width: 100%;
+    align-items: flex-start;
+
+    > div {
+      justify-content: flex-start;
+
+      > img {
+        height: 1rem;
+      }
+
+      > span {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.button {
+  @include flex(row, space-evenly, center, 0.5rem);
+  @include text(1.4rem, 500, center);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 50px;
+  border: none;
+  border-radius: var(--edges-curvature-100);
+  cursor: pointer;
+  background-color: var(--colors-neutral-300);
+
+  &:hover {
+    background-color: var(--colors-accent-100);
+    color: var(--colors-neutral-900);
+  }
+
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) {
+    font-size: 1rem;
+    height: 40px;
   }
 }

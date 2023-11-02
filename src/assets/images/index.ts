@@ -11,6 +11,7 @@ import sergalgos from "./ser-galgos.webp";
 import staililuminacion from "./stail-iluminacion.webp";
 import digichanges from "./digichanges.webp";
 import aboutme from "./about-me.webp";
+import profile from "./profile.webp";
 
 export const images = {
   eleccionesargentina,
@@ -26,4 +27,5 @@ export const images = {
   staililuminacion,
   digichanges,
   aboutme,
+  profile,
 };

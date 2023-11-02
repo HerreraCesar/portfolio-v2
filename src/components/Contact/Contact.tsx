@@ -14,10 +14,16 @@ interface Props {
 
 export default function Contact(props: Props) {
   return (
-    <section class={styles.section} id={props.id}>
+    <section
+      class={"section"}
+      id={props.id}
+      style={{ "background-color": "var(--colors-neutral-200)" }}
+    >
       <div class={styles.card}>
-        <h2 class={styles.title}>
-          {t("title")}
+        <h2
+          class={"title"}
+          style={{ "margin-top": "var(--measures-footer-height)" }}
+        >
           <strong>{t("contact_us")}</strong>
         </h2>
         <div
@@ -38,9 +44,6 @@ export default function Contact(props: Props) {
           </A>
           <A href={links.linkedin} target="_blank">
             <BsLinkedin />
-          </A>
-          <A href={links.portfolio} target="_blank">
-            <BsBriefcaseFill />
           </A>
         </div>
       </div>

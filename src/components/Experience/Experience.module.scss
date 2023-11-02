@@ -1,11 +1,5 @@
 @import "../../mixins.scss";
 
-.section {
-  @include flex(column, center, center, 0);
-  @include size(100dvw, 100dvh, 0, 0);
-  background-color: var(--colors-neutral-000);
-}
-
 .card {
   @include size(
     100%,
@@ -15,10 +9,20 @@
   );
   @include flex(column, center, center, 3rem);
   position: relative;
-}
 
-.title {
-  @include text(7rem, 800, center);
-  color: var(--colors-neutral-800);
-  text-transform: uppercase;
+  @media screen and (max-height: 800px) and (orientation: landscape) {
+    padding-top: 40px;
+    gap: 1.5rem;
+  }
+
+  @media screen and (max-aspect-ratio: 10/8) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (max-width: 590px) {
+    padding-left: 0;
+    padding-right: 0;
+    gap: 1.5rem;
+  }
 }

@@ -480,3 +480,31 @@ export const technologies = [
     url: "https://socket.io/",
   },
 ];
+
+export const stats = [
+  {
+    id: "nationality",
+    name: "about_nationality",
+    icon: logos.arg,
+  },
+  {
+    id: "language",
+    name: "about_spanish",
+    icon: logos.spain,
+  },
+  {
+    id: "second-language",
+    name: "about_english",
+    icon: logos.uk,
+  },
+  {
+    id: "movie",
+    name: "about_movie",
+    icon: logos.popcorn,
+  },
+  {
+    id: "drink",
+    name: "about_drink",
+    icon: logos.mate,
+  },
+];

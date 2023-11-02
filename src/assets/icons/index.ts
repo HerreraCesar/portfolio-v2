@@ -31,6 +31,11 @@ import gitlab from "./gitlab.svg";
 import jquery from "./jquery.svg";
 import socket from "./socket.svg";
 import solid from "./solid.svg";
+import popcorn from "./popcorn.svg";
+import mate from "./mate.svg";
+import arg from "./argentina.svg";
+import spain from "./spain.svg";
+import uk from "./united-kingdom.svg";
 
 export const logos = {
   solid_start,
@@ -66,4 +71,9 @@ export const logos = {
   jquery,
   socket,
   solid,
+  popcorn,
+  mate,
+  arg,
+  spain,
+  uk,
 };

@@ -9,9 +9,9 @@ interface Props {
 
 export default function Projects(props: Props) {
   return (
-    <section class={styles.section} id={props.id}>
+    <section class={"section"} id={props.id}>
       <div class={styles.card}>
-        <h2 class={styles.title}>{t("projects_title")}</h2>
+        <h2 class={"title"}>{t("projects_title")}</h2>
         <Slider slides={projects} />
       </div>
     </section>

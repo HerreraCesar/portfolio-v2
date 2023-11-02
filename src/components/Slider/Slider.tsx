@@ -23,12 +23,10 @@ export default (props: Props) => {
   return (
     <swiper-container
       loop={true}
-      // pagination="true"
-      // pagination-clickable="true"
       slides-per-view="auto"
       centered-slides="true"
       class={styles.slider}
-      space-between="60"
+      // space-between="60"
       onSlideChange={() => {
         setTouched(false);
       }}
@@ -45,17 +43,21 @@ export default (props: Props) => {
             <div class={styles.back}>
               <p innerHTML={t(slide.description)} />
               <div>
-                <For each={slide.stack}>
-                  {(tech) => {
-                    const technology = technologies.find((t) => t.id === tech);
-                    return (
-                      <A href={technology.url} target="_blank">
-                        <img src={technology.icon} width={20} height={20} />
-                        <span>{technology.name}</span>
-                      </A>
-                    );
-                  }}
-                </For>
+                <div>
+                  <For each={slide.stack}>
+                    {(tech) => {
+                      const technology = technologies.find(
+                        (t) => t.id === tech
+                      );
+                      return (
+                        <A href={technology.url} target="_blank">
+                          <img src={technology.icon} width={20} height={20} />
+                          <span>{technology.name}</span>
+                        </A>
+                      );
+                    }}
+                  </For>
+                </div>
               </div>
             </div>
             <div class={styles.background}>
@@ -67,51 +69,53 @@ export default (props: Props) => {
             </div>
             <div class={styles.data}>
               <h3>{slide.title}</h3>
-              <A
-                href={slide.url}
-                target="_blank"
-                onClick={(e) => {
-                  if (!slide.url) {
-                    e.preventDefault();
-                  }
-                }}
-                class={styles.button}
-                classList={{
-                  [styles.disabled]: !slide.url,
-                }}
-              >
-                <BsGlobe class={styles.sign} />
-                <div class={styles.text}>{t("projects_demo")}</div>
-              </A>
-              <A
-                href={slide.repository}
-                target={"_blank"}
-                onClick={(e) => {
-                  if (!slide.repository) {
-                    e.preventDefault();
-                  }
-                }}
-                class={styles.button}
-                classList={{
-                  [styles.disabled]: !slide.repository,
-                }}
-              >
-                <VsGithub class={styles.sign} />
-                <div class={styles.text}>{t("projects_code")}</div>
-              </A>
-              <button
-                class={styles.button}
-                onClick={() => {
-                  setTouched(!touched());
-                  setSlideIndex(index());
-                }}
-                classList={{
-                  [styles.active]: touched() && slideIndex() == index(),
-                }}
-              >
-                <FaSolidCircleInfo class={styles.sign} />
-                <div class={styles.text}>{t("projects_info")}</div>
-              </button>
+              <div class={styles.buttons_container}>
+                <A
+                  href={slide.url}
+                  target="_blank"
+                  onClick={(e) => {
+                    if (!slide.url) {
+                      e.preventDefault();
+                    }
+                  }}
+                  class={styles.button}
+                  classList={{
+                    [styles.disabled]: !slide.url,
+                  }}
+                >
+                  <BsGlobe class={styles.sign} />
+                  <div class={styles.text}>{t("projects_demo")}</div>
+                </A>
+                <A
+                  href={slide.repository}
+                  target={"_blank"}
+                  onClick={(e) => {
+                    if (!slide.repository) {
+                      e.preventDefault();
+                    }
+                  }}
+                  class={styles.button}
+                  classList={{
+                    [styles.disabled]: !slide.repository,
+                  }}
+                >
+                  <VsGithub class={styles.sign} />
+                  <div class={styles.text}>{t("projects_code")}</div>
+                </A>
+                <button
+                  class={styles.button}
+                  onClick={() => {
+                    setTouched(!touched());
+                    setSlideIndex(index());
+                  }}
+                  classList={{
+                    [styles.active]: touched() && slideIndex() == index(),
+                  }}
+                >
+                  <FaSolidCircleInfo class={styles.sign} />
+                  <div class={styles.text}>{t("projects_info")}</div>
+                </button>
+              </div>
             </div>
           </swiper-slide>
         )}

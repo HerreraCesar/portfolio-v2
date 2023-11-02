@@ -32,7 +32,7 @@ export default function Home(props: Props) {
   const [language]: [Accessor<Language>] = store.language;
 
   return (
-    <section class={styles.section} id={props.id}>
+    <section class={"section"} id={props.id}>
       <div class={styles.card}>
         <h1 class={styles.title}>
           {t("home_title")}
@@ -82,9 +82,6 @@ export default function Home(props: Props) {
             </A>
             <A href={links.linkedin} target="_blank">
               <BsLinkedin />
-            </A>
-            <A href={links.portfolio} target="_blank">
-              <BsBriefcaseFill />
             </A>
           </div>
         </div>

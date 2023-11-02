@@ -78,6 +78,14 @@ const experiences = {
 
 const about = {
   about_title: "About me",
+  about_name: "César Herrera",
+  about_description: `I'm a <strong>frontend developer</strong> who loves creatively <strong>solving problems</strong> with <strong>design</strong> and <strong>attention to detail</strong>. My <strong>temperance</strong> and <strong>predisposition</strong> to help others and <strong>work as a team</strong> characterize me. Among my passions are cinema, statistics and economics. My guiding motto is <i>"What is not measured cannot be improved."</i> `,
+  about_resume: "See resume",
+  about_nationality: "Argentinian",
+  about_movie: "Jurassic Park",
+  about_spanish: "Native spanish",
+  about_english: "Basic English",
+  about_drink: "Mate (infusion)",
 };
 
 const en: Dictionary = {

@@ -79,6 +79,15 @@ const experiences = {
 
 const about = {
   about_title: "Sobre mí",
+  about_name: "César Herrera",
+  about_description:
+    'Soy un <strong>desarrollador frontend</strong> al que le encanta <strong>resolver problemas</strong> de forma creativa con <strong>diseño</strong> y <strong>atención al detalle</strong>. Me caracterizan mi <strong>templanza</strong> y <strong>predisposición</strong> para ayudar a otros y <strong>trabajar en equipo</strong>. Entre mis pasiones se encuentran el cine, la estadística y la economía. Mi lema rector es <i>"Lo que no se mide no puede mejorarse"</i>.',
+  about_resume: "Ver currículum",
+  about_nationality: "Argentino",
+  about_movie: "Jurassic Park",
+  about_spanish: "Español nativo",
+  about_english: "Inglés básico",
+  about_drink: "Mate",
 };
 
 const es: Dictionary = {
