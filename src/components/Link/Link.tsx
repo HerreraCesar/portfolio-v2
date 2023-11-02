@@ -1,6 +1,6 @@
-import { navigate } from '~/helpers/navigate';
-import styles from './Link.module.scss';
-import { t } from '~/helpers/translate';
+import { navigate } from "~/helpers/navigate";
+import styles from "./Link.module.scss";
+import { t } from "~/helpers/translate";
 
 interface LinkProps {
   section: string;
@@ -20,6 +20,7 @@ export const Link = (props: LinkProps) => {
         classList={{
           [styles.active_link]: props.section === props.current,
         }}
+        aria-label={t(props.section)}
       >
         {t(props.section)}
       </button>

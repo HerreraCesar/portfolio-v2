@@ -39,10 +39,18 @@ export default function Contact(props: Props) {
           </div>
         </div>
         <div class={styles.icons}>
-          <A href={links.github} target="_blank">
+          <A
+            href={links.github}
+            target="_blank"
+            aria-label="Go to GitHub profile"
+          >
             <BsGithub />
           </A>
-          <A href={links.linkedin} target="_blank">
+          <A
+            href={links.linkedin}
+            target="_blank"
+            aria-label="Go to LinkedIn profile"
+          >
             <BsLinkedin />
           </A>
         </div>

@@ -50,8 +50,17 @@ export default (props: Props) => {
                         (t) => t.id === tech
                       );
                       return (
-                        <A href={technology.url} target="_blank">
-                          <img src={technology.icon} width={20} height={20} />
+                        <A
+                          href={technology.url}
+                          target="_blank"
+                          aria-label="Go to the website of the technology"
+                        >
+                          <img
+                            src={technology.icon}
+                            width={20}
+                            height={20}
+                            alt={technology.id + " logo"}
+                          />
                           <span>{technology.name}</span>
                         </A>
                       );
@@ -82,6 +91,7 @@ export default (props: Props) => {
                   classList={{
                     [styles.disabled]: !slide.url,
                   }}
+                  aria-label="Go to project deployment"
                 >
                   <BsGlobe class={styles.sign} />
                   <div class={styles.text}>{t("projects_demo")}</div>
@@ -98,6 +108,7 @@ export default (props: Props) => {
                   classList={{
                     [styles.disabled]: !slide.repository,
                   }}
+                  aria-label="Go to the project repository"
                 >
                   <VsGithub class={styles.sign} />
                   <div class={styles.text}>{t("projects_code")}</div>
@@ -111,6 +122,7 @@ export default (props: Props) => {
                   classList={{
                     [styles.active]: touched() && slideIndex() == index(),
                   }}
+                  aria-label={t("projects_info")}
                 >
                   <FaSolidCircleInfo class={styles.sign} />
                   <div class={styles.text}>{t("projects_info")}</div>

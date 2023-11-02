@@ -29,7 +29,12 @@ export default function About(props: Props) {
               <For each={stats}>
                 {(stat) => (
                   <div>
-                    <img src={stat.icon} />
+                    <img
+                      src={stat.icon}
+                      width={25}
+                      height={25}
+                      alt={t(stat.id) + " icon"}
+                    />
                     <span>{t(stat.name)}</span>
                   </div>
                 )}
@@ -38,13 +43,14 @@ export default function About(props: Props) {
                 href={language() === "es" ? spanish_cv : english_cv}
                 target="_blank"
                 class={styles.button}
+                aria-label="Open the cv in pdf file"
               >
                 <FiExternalLink />
                 {t("about_resume")}
               </A>
             </div>
             <div class={styles.image}>
-              <img src={images.profile} />
+              <img src={images.profile} alt="Profile" />
             </div>
           </div>
           <div class={styles.data}>
@@ -56,7 +62,7 @@ export default function About(props: Props) {
           <For each={technologies}>
             {(technology) => (
               <div class={styles.marquee_item}>
-                <img src={technology.icon} />
+                <img src={technology.icon} alt={technology.id + " logo"} />
                 <span>{technology.name}</span>
               </div>
             )}

@@ -7,7 +7,7 @@ export default function Soon() {
     <section class={styles.section}>
       <div class={styles.card}>
         <h1 class={styles.title}>{t("coming_soon")}</h1>
-        <A class={styles.link} href="/contact">
+        <A class={styles.link} href="/contact" aria-label="Go to contact page">
           {t("contact_link")}
         </A>
       </div>

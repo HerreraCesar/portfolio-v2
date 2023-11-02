@@ -20,6 +20,9 @@
   @include flex(row, center, center, 2rem);
   @media screen and (max-aspect-ratio: 10/13) {
     flex-direction: column;
+  }
+
+  @media screen and (max-aspect-ratio: 10/13) and (min-width: 601px) {
     max-width: 70dvw;
   }
 }
@@ -124,7 +127,7 @@
     @include flex(row, flex-end, center, 0.5rem);
 
     > img {
-      height: 1.6rem;
+      height: 26px;
       border-radius: 2px;
     }
 
@@ -135,7 +138,7 @@
 
     @media screen and (max-height: 800px) and (orientation: landscape) {
       > img {
-        height: 1.4rem;
+        height: 22px;
       }
 
       > span {
@@ -152,7 +155,7 @@
       justify-content: flex-start;
 
       > img {
-        height: 1rem;
+        height: 16px;
       }
 
       > span {

@@ -8,7 +8,11 @@ export default function Footer() {
     <footer class={styles.footer}>
       <span class={styles.author}>
         {t("author")}
-        <A href={links.portfolio} target="_blank">
+        <A
+          href={links.portfolio}
+          target="_blank"
+          aria-label="Reference to this website"
+        >
           Herrera César
         </A>
       </span>

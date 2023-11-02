@@ -52,7 +52,7 @@ export default function Home(props: Props) {
                 </textPath>
               </text>
             </svg>
-            <button class={styles.button}>
+            <button class={styles.button} aria-label={t("home_button")}>
               <p>{t("home_button")}</p>
             </button>
           </div>
@@ -77,10 +77,18 @@ export default function Home(props: Props) {
         <div class={styles.subtitle_container}>
           <h3 class={styles.subtitle}>{t("home_subtitle")}</h3>
           <div class={styles.icons}>
-            <A href={links.github} target="_blank">
+            <A
+              href={links.github}
+              target="_blank"
+              aria-label="Go to GitHub profile"
+            >
               <BsGithub />
             </A>
-            <A href={links.linkedin} target="_blank">
+            <A
+              href={links.linkedin}
+              target="_blank"
+              aria-label="Go to LinkedIn profile"
+            >
               <BsLinkedin />
             </A>
           </div>

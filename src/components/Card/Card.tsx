@@ -1,5 +1,4 @@
-import noise from '../../../public/noise.webp';
-import styles from './Card.module.scss';
+import styles from "./Card.module.scss";
 
 interface CardProps {
   delay?: number;
@@ -12,9 +11,8 @@ export default function Card({ delay = 0 }: CardProps) {
         src="/noise.webp"
         alt="White noise"
         class={styles.gif}
-        style={{ 'animation-delay': `${delay}s, 8s` }}
+        style={{ "animation-delay": `${delay}s, 8s` }}
       />
-      <img src="/bars.webp" alt="White noise" class={styles.img} />
     </div>
   );
 }
