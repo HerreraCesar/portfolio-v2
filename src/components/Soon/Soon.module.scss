@@ -12,7 +12,7 @@
 }
 
 .title {
-  @include text(2rem, 700);
+  @include text(2rem, 800);
   color: var(--colors-neutral-900);
   font-style: italic;
 }

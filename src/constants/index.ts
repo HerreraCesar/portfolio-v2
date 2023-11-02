@@ -14,7 +14,7 @@ export const INITIAL_LANGUAGE = "en";
 
 export const INITIAL_THEME = "dark";
 
-export const INITIAL_COLOR = "#5e28ed";
+export const INITIAL_COLOR = "#e61e7a";
 
 export const INITIAL_TYPOGRAPHY = "Bricolage Grotesque";
 

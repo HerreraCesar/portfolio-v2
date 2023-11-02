@@ -43,7 +43,7 @@ export default function About(props: Props) {
                 href={language() === "es" ? spanish_cv : english_cv}
                 target="_blank"
                 class={styles.button}
-                aria-label="Open the cv in pdf file"
+                aria-label="Open the CV in pdf file"
               >
                 <FiExternalLink />
                 {t("about_resume")}

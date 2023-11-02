@@ -53,7 +53,7 @@ export default (props: Props) => {
                         <A
                           href={technology.url}
                           target="_blank"
-                          aria-label="Go to the website of the technology"
+                          aria-label={`Go to the ${technology?.name} website`}
                         >
                           <img
                             src={technology.icon}
