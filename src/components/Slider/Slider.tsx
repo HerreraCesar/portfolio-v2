@@ -30,7 +30,11 @@ export default (props: Props) => {
       onSlideChange={() => {
         setTouched(false);
       }}
-      autoplay={{ delay: 2000, pauseOnMouseEnter: true }}
+      autoplay={
+        window.innerWidth > 600
+          ? { delay: 2400, pauseOnMouseEnter: true }
+          : false
+      }
     >
       <For each={props.slides}>
         {(slide, index) => (
