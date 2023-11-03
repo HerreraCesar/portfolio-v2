@@ -59,7 +59,7 @@ export default function About(props: Props) {
                   </A>
                 </div>
                 <div class={styles.image}>
-                  <img src={images.profile} alt="Profile" />
+                  <img src={images.newProfile} alt="Profile" />
                 </div>
               </div>
               <div class={styles.data}>
