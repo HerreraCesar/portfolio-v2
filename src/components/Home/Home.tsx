@@ -9,6 +9,7 @@ import { translations } from "~/constants";
 import { A } from "solid-start";
 import { links } from "~/config";
 import { BsBriefcaseFill, BsGithub, BsLinkedin } from "solid-icons/bs";
+import { Motion } from "@motionone/solid";
 
 interface Props {
   id: string;
@@ -33,10 +34,19 @@ export default function Home(props: Props) {
 
   return (
     <section class={"section"} id={props.id}>
-      <div class={styles.card}>
+      <Motion.div
+        class={styles.card}
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1, transition: { delay: 0.3 } }}
+      >
         <h1 class={styles.title}>
           {t("home_title")}
-          <div class={styles.circle} onClick={() => navigate("contact")}>
+          <Motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1, transition: { delay: 0.5 } }}
+            class={styles.circle}
+            onClick={() => navigate("contact")}
+          >
             <svg viewBox="0 0 100 100">
               <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
               <text class={styles.rotate_text}>
@@ -55,7 +65,7 @@ export default function Home(props: Props) {
             <button class={styles.button} aria-label={t("home_button")}>
               <p>{t("home_button")}</p>
             </button>
-          </div>
+          </Motion.div>
         </h1>
         <div class={styles.picture} id="profile" />
         <h2
@@ -93,13 +103,12 @@ export default function Home(props: Props) {
             </A>
           </div>
         </div>
-
         <Marquee quantity={3} duration={36}>
           <For each={translations}>
             {(translation) => <span>{translation}</span>}
           </For>
         </Marquee>
-      </div>
+      </Motion.div>
     </section>
   );
 }

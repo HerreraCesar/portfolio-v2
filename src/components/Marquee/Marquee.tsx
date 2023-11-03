@@ -1,6 +1,7 @@
 import { For, JSXElement } from "solid-js";
 
 import styles from "./Marquee.module.scss";
+import { Motion } from "@motionone/solid";
 
 interface SliderProps {
   quantity: number;
@@ -11,7 +12,11 @@ interface SliderProps {
 
 export default function Marquee(props: SliderProps) {
   return (
-    <div class={styles.container}>
+    <Motion.div
+      class={styles.container}
+      initial={{ y: 100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1, transition: { delay: 0.3 } }}
+    >
       <div>
         <div
           style={{
@@ -22,6 +27,6 @@ export default function Marquee(props: SliderProps) {
           <For each={Array(props.quantity * 3)}>{() => props.children}</For>
         </div>
       </div>
-    </div>
+    </Motion.div>
   );
 }

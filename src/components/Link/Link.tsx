@@ -1,14 +1,16 @@
 import { navigate } from "~/helpers/navigate";
 import styles from "./Link.module.scss";
 import { t } from "~/helpers/translate";
+import { useApplicationContext } from "~/context/context";
 
 interface LinkProps {
   section: string;
   setMenuOpen: (arg: boolean) => void;
-  current: string;
 }
 
 export const Link = (props: LinkProps) => {
+  const store = useApplicationContext();
+  const [currentSection] = store.currentSection;
   return (
     <li>
       <button
@@ -18,7 +20,7 @@ export const Link = (props: LinkProps) => {
         }}
         class={styles.link}
         classList={{
-          [styles.active_link]: props.section === props.current,
+          [styles.active_link]: props.section === currentSection(),
         }}
         aria-label={t(props.section)}
       >

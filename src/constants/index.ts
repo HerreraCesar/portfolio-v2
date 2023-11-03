@@ -18,6 +18,8 @@ export const INITIAL_COLOR = "#e61e7a";
 
 export const INITIAL_TYPOGRAPHY = "Bricolage Grotesque";
 
+export const INITIAL_SECTION = "home";
+
 export const projects = [
   {
     title: "The Movie Place",

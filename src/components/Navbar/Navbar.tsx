@@ -8,9 +8,12 @@ import { createIntersectionObserver } from "@solid-primitives/intersection-obser
 import styles from "./Navbar.module.scss";
 import { t } from "~/helpers/translate";
 import { navigate } from "~/helpers/navigate";
+import { useApplicationContext } from "~/context/context";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = createSignal<boolean>(false);
+  const store = useApplicationContext();
+  const [_, { changeCurrentSection }] = store.currentSection;
 
   createEffect(() => {
     const body = document.getElementById("body");
@@ -25,7 +28,6 @@ export default function Navbar() {
 
   const sections = ["home", "experience", "about", "projects", "contact"];
   const [elements, setElements] = createSignal<Element[]>([]);
-  const [currentSection, setCurrentSection] = createSignal("");
 
   onMount(() => {
     sections.forEach((section) => {
@@ -43,11 +45,11 @@ export default function Navbar() {
     (entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) {
-          setCurrentSection(e.target.id);
+          changeCurrentSection(e.target.id);
         }
       });
     },
-    { threshold: 0.85 }
+    { threshold: 0.6 }
   );
 
   return (
@@ -65,11 +67,7 @@ export default function Navbar() {
           <ul>
             <For each={sections}>
               {(section) => (
-                <Link
-                  section={section}
-                  setMenuOpen={setMenuOpen}
-                  current={currentSection()}
-                />
+                <Link section={section} setMenuOpen={setMenuOpen} />
               )}
             </For>
           </ul>

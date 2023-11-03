@@ -1,8 +1,9 @@
-import { Color, Language, Theme, Typography } from "~/interfaces";
+import { Color, Language, Sections, Theme, Typography } from "~/interfaces";
 import { JSX, createContext, createSignal, useContext } from "solid-js";
 import {
   INITIAL_COLOR,
   INITIAL_LANGUAGE,
+  INITIAL_SECTION,
   INITIAL_THEME,
   INITIAL_TYPOGRAPHY,
 } from "~/constants";
@@ -19,6 +20,8 @@ export function ApplicationProvider(props: ApplicationProviderProps) {
   const [selectedColor, setSelectedColor] = createSignal<Color>(INITIAL_COLOR);
   const [selectedTypography, setSelectedTypography] =
     createSignal<Typography>(INITIAL_TYPOGRAPHY);
+  const [currentSection, setCurrentSection] =
+    createSignal<Sections>(INITIAL_SECTION);
 
   const store = {
     theme: [
@@ -58,6 +61,14 @@ export function ApplicationProvider(props: ApplicationProviderProps) {
             "--font",
             selectedTypography
           );
+        },
+      },
+    ],
+    currentSection: [
+      currentSection,
+      {
+        changeCurrentSection(currentSection: Sections) {
+          setCurrentSection(() => currentSection);
         },
       },
     ],
