@@ -81,6 +81,7 @@
   border: solid 2px var(--colors-neutral-200);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
+  z-index: 10;
 
   > div {
     transition: all 0.3s ease-in-out;
@@ -111,7 +112,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
+  z-index: 1;
 
   p {
     @include text(1.1rem, 300, start);

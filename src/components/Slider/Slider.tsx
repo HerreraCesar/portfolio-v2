@@ -44,7 +44,8 @@ export default (props: Props) => {
               [styles.touched]: touched() && index() == slideIndex(),
             }}
           >
-            <Motion
+            <Motion.div
+              style={{ "z-index": -10 }}
               initial={{ opacity: 0 }}
               animate={{
                 opacity: 1,
@@ -173,7 +174,7 @@ export default (props: Props) => {
                   </Motion>
                 </div>
               </div>
-            </Motion>
+            </Motion.div>
           </swiper-slide>
         )}
       </For>
