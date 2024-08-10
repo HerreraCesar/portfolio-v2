@@ -18,8 +18,10 @@ import { ErrorBoundary } from "solid-start/error-boundary";
 import Redirect from "./components/Redirect/Redirect";
 import { Routes } from "solid-start";
 import { inject } from "@vercel/analytics";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 inject();
+injectSpeedInsights();
 
 export default function Root() {
   return (
